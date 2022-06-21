@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./AddUser.module.css";
 
 function AddUser(props) {
-  const [userName, setUserName] = useState("");
-  const [age, setAge] = useState(0);
+  const usernNameRef = useRef();
+  const ageRef = useRef();
 
   function handleSubmit(event) {
     event.preventDefault();
-    props.newUserHandler({ name: userName, age });
-    setUserName("");
-    setAge(0);
+    props.newUserHandler({
+      name: usernNameRef.current.value,
+      age: ageRef.current.value,
+    });
+    usernNameRef.current.value = "";
+    ageRef.current.value = "";
   }
 
   return (
@@ -17,24 +20,11 @@ function AddUser(props) {
       <div className={styles["form-controls"]}>
         <div className={styles["form-control"]}>
           <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            onChange={(event) => setUserName(event.target.value)}
-            required
-            value={userName}
-          ></input>
+          <input id="username" type="text" required ref={usernNameRef}></input>
         </div>
         <div className={styles["form-control"]}>
           <label htmlFor="age">Age (Years)</label>
-          <input
-            id="age"
-            type="number"
-            onChange={(event) => setAge(event.target.value)}
-            required
-            min={1}
-            value={age}
-          ></input>
+          <input id="age" type="number" required min={1} ref={ageRef}></input>
         </div>
       </div>
       <div className={styles["form-actions"]}>
