@@ -1,0 +1,6 @@
+.container {
+  width: 100%;
+}
+.container > * {
+  margin-bottom: 0.5rem;
+}

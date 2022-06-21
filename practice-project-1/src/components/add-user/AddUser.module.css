@@ -1,0 +1,30 @@
+form {
+  width: 100%;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-control > label {
+  font-weight: bold;
+  margin: 0.2rem 0rem;
+}
+
+.form-control > input {
+  font-weight: bold;
+  margin: 0.5rem 0rem;
+  width: 100%;
+  border: 1px solid rgb(157, 157, 157);
+  border-radius: 2px;
+  height: 1.5rem;
+  color: rgb(79, 78, 78);
+}
